@@ -116,6 +116,19 @@ for i, (rating, combination) in enumerate(ratings[:10], 1):
         band_info.append(f"{freq}MHz({band_ch_str})")
     print(f"{i}. Rating: {rating} - {', '.join(band_info)}")
 
+# Display as table
+print("\n" + "="*80)
+print("Rank | Rating | Ch1        | Ch2        | Ch3        | Ch4        ")
+print("-"*80)
+for i, (rating, combination) in enumerate(ratings[:10], 1):
+    ch_strs = []
+    for freq in combination:
+        band_ch_list = freq_to_band_ch.get(freq, [('?', '?')])
+        band_ch_str = '/'.join([f"{b}{ch}" for b, ch in band_ch_list])
+        ch_strs.append(f"{freq}({band_ch_str})")
+    print(f"{i:4d} | {rating:6d} | {ch_strs[0]:10s} | {ch_strs[1]:10s} | {ch_strs[2]:10s} | {ch_strs[3]:10s}")
+print("="*80)
+
 
 def drawResults(results):
     import matplotlib.pyplot as plt
