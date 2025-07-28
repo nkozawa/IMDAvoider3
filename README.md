@@ -1,3 +1,8 @@
+# 前言
+https://github.com/Saqoosha/IMDAvoider/blob/main/imd.py から派生したものです。
+日本のアマチュア無線のバンドプランの変更によりVTX電波の4波同時運用の可能性を探るものです。オリジナルのIMDツール http://etserv.etheli.com/IMDTabler/run は二つの周波数の合成による影響を計算するものでした。各所での実験の結果(主には屋内で飛行する環境で)、それだけでは見つけられない不具合があることがほぼ確実です。
+そこで3波を合成した時に発生する周波数成分を考慮するように書き直してみました。
+
 # IMD (Intermodulation Distortion) 計算ツール
 
 このプロジェクトは、複数の周波数における相互変調歪み（IMD）を計算し、最適な周波数組み合わせを見つけるためのツールです。
@@ -39,9 +44,8 @@ VTX（Video Transmitter）システムにおいて、複数の周波数を同時
 
 #### 使用方法
 
-```bash
-# デフォルト周波数で評価
-python3 imd.py
+# 全ての可能なチャネルの組み合わせ4845通りを評価
+python3 calculate_4freq_ratings.py
 
 # 特定の周波数で評価
 python3 imd.py 5685 5705 5769 5809
